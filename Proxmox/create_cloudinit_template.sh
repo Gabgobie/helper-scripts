@@ -391,7 +391,7 @@ function create_cloudinit_template() {
   if ! [ -f "$cloudinit_vendor_config" ]; then
     echo -e "The cloudinit vendor configuration file is missing.\nTrying to create it..."
     if ! [ -f "${snippets_folder}${default_purpose}${cloudinit_vendor_suffix}" ]; then
-      echo -e "The default cloudinit vendor configuration file is missing.\nPlease create it manually.\nAlso, make sure you have the snippets storage enabled.\nExiting..."
+      echo -e "The default cloudinit vendor configuration file is missing.\nPlease create it manually as \"${snippets_folder}${default_purpose}${cloudinit_vendor_suffix}\".\nAlso, make sure you have the snippets storage enabled.\nExiting..."
       exit 1
     else
       if whiptail --backtitle "Proxmox VM Template Creator" --title "Cloudinit Vendor Configuration" --yesno "The cloudinit vendor configuration file is missing. Do you want to make a copy of the default configuration to later edit it?" 10 60 --yes-button "Yes" --no-button "No" 3>&1 1>&2 2>&3; then
